@@ -11,7 +11,7 @@
         android:id="@+id/toolbar" />
 
     <Button
-        android:id="@+id/Register_btn"
+        android:id="@+id/Login_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="184dp"
@@ -39,7 +39,7 @@
         android:textSize="30dp"
 
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/Email"
+        app:layout_constraintBottom_toTopOf="@+id/LEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +47,7 @@
         app:layout_constraintVertical_bias="0.063" />
 
     <EditText
-        android:id="@+id/Email"
+        android:id="@+id/LEmail"
         android:layout_width="match_parent"
 
         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
         android:inputType="textEmailAddress"
         android:textColor="#FFFFFF"
         android:textColorHint="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/pass"
+        app:layout_constraintBottom_toTopOf="@+id/Lpass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="RtlCompat" />
@@ -70,7 +70,7 @@
 
 
     <EditText
-        android:id="@+id/pass"
+        android:id="@+id/Lpass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
@@ -85,13 +85,13 @@
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
         android:textColorHint="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/Register_btn"
+        app:layout_constraintBottom_toTopOf="@+id/Login_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="RtlCompat" />
 
     <TextView
-        android:id="@+id/Forget_password"
+        android:id="@+id/LForget_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -100,10 +100,10 @@
         android:textSize="20dp"
         android:textStyle="bold"        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Register_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/Login_btn" />
 
     <TextView
-        android:id="@+id/Already_have_Account"
+        android:id="@+id/LAlready_have_Account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -114,6 +114,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Forget_password"
+        app:layout_constraintTop_toBottomOf="@+id/LForget_password"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,7 @@
         />
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/register_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="184dp"
@@ -87,7 +87,7 @@
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
         android:textColorHint="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/btn_login"
+        app:layout_constraintBottom_toTopOf="@+id/register_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="RtlCompat" />
@@ -102,7 +102,7 @@
         android:textSize="20dp"
         android:textStyle="bold"        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        app:layout_constraintTop_toBottomOf="@+id/register_login" />
 
     <TextView
         android:id="@+id/RAlready_have_Account"

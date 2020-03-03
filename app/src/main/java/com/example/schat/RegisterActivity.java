@@ -19,7 +19,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        InitialaizeFields();
 
         mtoolbar = findViewById(R.id.register_toolbar);
         setSupportActionBar(mtoolbar);
@@ -34,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     private void InitialaizeFields() {
-        Register_btn = findViewById(R.id.Register_btn);
+        Register_btn = findViewById(R.id.register_login);
         UserEmail = findViewById(R.id.Email);
         UserPassword = findViewById(R.id.pass);
         AlreadyHaveAccountLink = findViewById(R.id.RAlready_have_Account);
