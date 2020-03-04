@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="#10685E"
     tools:context=".LoginActivity">
+
+
     <include
         layout="@layout/app_bar_layout"
         android:id="@+id/toolbar" />
@@ -107,7 +109,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Already have an Account ?"
+        android:text="Don't have an Account ?"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -116,4 +118,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LForget_password"
         app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
