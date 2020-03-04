@@ -62,6 +62,13 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+    private void SendUserToMainActivity() {
+
+        Intent mainIntent = new Intent(LoginActivity.this,MainActivity.class);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(mainIntent);
+        finish();
+    }
 
 
     private void AllowUserToLogin() {
@@ -82,8 +89,8 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (task.isSuccessful()) {
 
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                        Toast.makeText(LoginActivity.this, "Logged In Successful ...", Toast.LENGTH_SHORT).show();
+                        SendUserToMainActivity();
+                    Toast.makeText(LoginActivity.this, "Logged In Successful ...", Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
 
                     } else {
