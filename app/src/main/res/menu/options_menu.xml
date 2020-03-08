@@ -13,7 +13,12 @@
         app:showAsAction="never"
 
         ></item>
+    <item
+        android:id="@+id/main_create_group_option"
+        android:title="Create Group"
+        app:showAsAction="never"
 
+        ></item>
     <item
         android:id="@+id/main_logout_option"
         android:title="Logout"

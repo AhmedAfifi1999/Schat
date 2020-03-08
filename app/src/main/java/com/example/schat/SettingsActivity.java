@@ -15,8 +15,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
@@ -41,11 +44,47 @@ public class SettingsActivity extends AppCompatActivity {
         RootRef = FirebaseDatabase.getInstance().getReference();
         CurrentUserID = mAuth.getCurrentUser().getUid();
         InitializeField();
+        userName.setVisibility(View.INVISIBLE);
 
         UpdateAccountSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UpdateSetting();
+            }
+        });
+
+        RetrieveUserInfo();
+    }
+
+    private void RetrieveUserInfo() {
+        RootRef.child("Users").child(CurrentUserID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists() && dataSnapshot.hasChild("name") && dataSnapshot.hasChild("image")) {
+
+                    String retrieveUserName = dataSnapshot.child("name").getValue().toString();
+                    String retrieveStatus = dataSnapshot.child("status").getValue().toString();
+
+                    String retrieveprofileImage = dataSnapshot.child("image").getValue().toString();
+                    userName.setText(retrieveUserName);
+                    userStatus.setText(retrieveStatus);
+
+                } else if (dataSnapshot.exists() && dataSnapshot.hasChild("name")) {
+
+                    String retrieveUserName = dataSnapshot.child("name").getValue().toString();
+                    String retrieveStatus = dataSnapshot.child("status").getValue().toString();
+                    userName.setText(retrieveUserName);
+                    userStatus.setText(retrieveStatus);
+
+                } else {
+                    userName.setVisibility(View.VISIBLE);
+                    Toast.makeText(SettingsActivity.this, "Pleas set & Update Your Profile", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
 
@@ -58,7 +97,7 @@ public class SettingsActivity extends AppCompatActivity {
             Toast.makeText(this, "Please Enter UserName", Toast.LENGTH_SHORT).show();
 
         } else if (TextUtils.isEmpty(setStatus)) {
-            Toast.makeText(this, "Please Enter Your Statuse", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please Enter Your Status", Toast.LENGTH_SHORT).show();
 
 
         } else {
