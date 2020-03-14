@@ -1,6 +1,7 @@
 package com.example.schat;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -29,13 +30,15 @@ public class SettingsActivity extends AppCompatActivity {
 
     private Button UpdateAccountSettings;
     private EditText userName, userStatus;
-    private CircleImageView userProfile;
+    private CircleImageView userProfileImage;
     private String CurrentUserID;
     private FirebaseAuth mAuth;
     private DatabaseReference RootRef;
+    private static final int GallaryPick = 1;
 
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
@@ -54,6 +57,18 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
         RetrieveUserInfo();
+
+        userProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galleryIntent = new Intent();
+                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+                galleryIntent.setType("image/*");
+                startActivityForResult(galleryIntent, GallaryPick);
+            }
+        });
+
+
     }
 
     private void RetrieveUserInfo() {
@@ -130,8 +145,14 @@ public class SettingsActivity extends AppCompatActivity {
         UpdateAccountSettings = findViewById(R.id.update_settings_btn);
         userName = findViewById(R.id.set_user_name);
         userStatus = findViewById(R.id.set_profile_status);
-        userProfile = findViewById(R.id.set_profile_image);
+        userProfileImage = findViewById(R.id.set_profile_image);
 
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
     }
 
