@@ -135,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         if (item.getItemId() == R.id.main_find_friends_option) {
+            startActivity(new Intent(MainActivity.this, FindFriendsActivity.class));
 
 
         }
