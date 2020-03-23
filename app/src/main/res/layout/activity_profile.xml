@@ -26,17 +26,37 @@
         android:layout_marginTop="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="5dp"
-
-        android:text="user name" />
+        android:text="user name"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
 
     <TextView
+        android:id="@+id/visit_profile_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/visit_user_name"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="15dp"
-        android:text="hi  hellll  asdasd asf" />
+        android:text="hi  hellll  asdasd asf"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Button
+
+        android:id="@+id/send_message_request_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/visit_profile_status"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="70dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:text="Send Message"
+        android:textStyle="bold" />
+
 </RelativeLayout>
