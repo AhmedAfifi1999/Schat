@@ -78,10 +78,11 @@ public class LoginActivity extends AppCompatActivity {
         String password = UserPassword.getText().toString();
         if (TextUtils.isEmpty(email)) {
             UserEmail.setError("please Enter Email");
-            Toast.makeText(this, "please Enter Email", Toast.LENGTH_SHORT).show();
-        } else if (TextUtils.isEmpty(password)) {
-            UserPassword.setError("please Enter password");
-            Toast.makeText(this, "please Enter password", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "please Enter Email", Toast.LENGTH_SHORT).show();
+            if (TextUtils.isEmpty(password)) {
+                UserPassword.setError("please Enter password");
+//                Toast.makeText(this, "please Enter password", Toast.LENGTH_SHORT).show();
+            }
         } else {
             loadingBar.setTitle("Sign In");
             loadingBar.setMessage("Please Wait , while we are login ");
