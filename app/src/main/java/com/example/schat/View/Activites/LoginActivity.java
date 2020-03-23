@@ -63,10 +63,11 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
     private void SendUserToMainActivity() {
 
         Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
-        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
         finish();
     }
@@ -76,8 +77,10 @@ public class LoginActivity extends AppCompatActivity {
         String email = UserEmail.getText().toString();
         String password = UserPassword.getText().toString();
         if (TextUtils.isEmpty(email)) {
+            UserEmail.setError("please Enter Email");
             Toast.makeText(this, "please Enter Email", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(password)) {
+            UserPassword.setError("please Enter password");
             Toast.makeText(this, "please Enter password", Toast.LENGTH_SHORT).show();
         } else {
             loadingBar.setTitle("Sign In");
@@ -91,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
 
                         SendUserToMainActivity();
-                    Toast.makeText(LoginActivity.this, "Logged In Successful ...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Logged In Successful ...", Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
 
                     } else {
@@ -109,7 +112,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-
 
 
     private void InitializeFields() {
