@@ -13,19 +13,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".View.Activites.ProfileActivity"></activity>
         <activity
-            android:name=".FindFriendsActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".GroupChatActivity" />
-        <activity android:name=".SettingsActivity" />
+            android:name=".View.Activites.FindFriendsActivity"
+            android:parentActivityName=".View.Activites.MainActivity" />
+        <activity android:name=".View.Activites.GroupChatActivity" />
+        <activity android:name=".View.Activites.SettingsActivity" />
         <activity
-            android:name=".RegisterActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".View.Activites.RegisterActivity"
+            android:parentActivityName=".View.Activites.MainActivity" />
         <activity
-            android:name=".LoginActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity">
+            android:name=".View.Activites.LoginActivity"
+            android:parentActivityName=".View.Activites.MainActivity" />
+        <activity android:name=".View.Activites.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

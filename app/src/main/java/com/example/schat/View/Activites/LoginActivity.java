@@ -1,4 +1,4 @@
-package com.example.schat;
+package com.example.schat.View.Activites;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -15,11 +15,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.schat.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     private Toolbar mtoolbar;
@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView ForgetPasswordLink, DontHaveAccountLink;
     private ProgressDialog loadingBar;
     private FirebaseAuth mAuth;
-
+//
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
         ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
         actionBar.setTitle("Login");
         actionBar.setDisplayHomeAsUpEnabled(true);
 
@@ -64,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void SendUserToMainActivity() {
 
-        Intent mainIntent = new Intent(LoginActivity.this,MainActivity.class);
+        Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
         finish();

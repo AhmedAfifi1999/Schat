@@ -1,4 +1,4 @@
-package com.example.schat;
+package com.example.schat.View.Fragments;
 
 
 import android.content.Intent;
@@ -14,6 +14,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.schat.R;
+import com.example.schat.View.Activites.GroupChatActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -58,7 +60,7 @@ public class GroupsFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                   String currentGroupName =parent.getItemAtPosition(position).toString();
-                Intent GroupChatIntent = new Intent(getContext(),GroupChatActivity.class);
+                Intent GroupChatIntent = new Intent(getContext(), GroupChatActivity.class);
                 GroupChatIntent.putExtra("groupName",currentGroupName);
                 startActivity(GroupChatIntent);
             }

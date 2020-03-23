@@ -1,9 +1,11 @@
-package com.example.schat;
+package com.example.schat.View.Activites;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.Toast;
+
+import com.example.schat.R;
 
 public class ProfileActivity extends AppCompatActivity {
 
