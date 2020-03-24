@@ -1,9 +1,13 @@
-package com.example.schat;
+package com.example.schat.Adapters;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.example.schat.View.Fragments.ChatsFragment;
+import com.example.schat.View.Fragments.ContactsFragment;
+import com.example.schat.View.Fragments.GroupsFragment;
 
 public class TabsAccessorAdapter extends FragmentPagerAdapter {
     public TabsAccessorAdapter(FragmentManager fm) {

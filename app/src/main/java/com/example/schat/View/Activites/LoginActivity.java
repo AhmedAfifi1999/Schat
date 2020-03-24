@@ -1,4 +1,4 @@
-package com.example.schat;
+package com.example.schat.View.Activites;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -15,11 +15,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.schat.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     private Toolbar mtoolbar;
@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView ForgetPasswordLink, DontHaveAccountLink;
     private ProgressDialog loadingBar;
     private FirebaseAuth mAuth;
-
+//
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
         ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
         actionBar.setTitle("Login");
         actionBar.setDisplayHomeAsUpEnabled(true);
 
@@ -62,10 +63,11 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
     private void SendUserToMainActivity() {
 
-        Intent mainIntent = new Intent(LoginActivity.this,MainActivity.class);
-        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
         finish();
     }
@@ -75,9 +77,12 @@ public class LoginActivity extends AppCompatActivity {
         String email = UserEmail.getText().toString();
         String password = UserPassword.getText().toString();
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(this, "please Enter Email", Toast.LENGTH_SHORT).show();
-        } else if (TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "please Enter password", Toast.LENGTH_SHORT).show();
+            UserEmail.setError("please Enter Email");
+//            Toast.makeText(this, "please Enter Email", Toast.LENGTH_SHORT).show();
+            if (TextUtils.isEmpty(password)) {
+                UserPassword.setError("please Enter password");
+//                Toast.makeText(this, "please Enter password", Toast.LENGTH_SHORT).show();
+            }
         } else {
             loadingBar.setTitle("Sign In");
             loadingBar.setMessage("Please Wait , while we are login ");
@@ -90,14 +95,14 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
 
                         SendUserToMainActivity();
-                    Toast.makeText(LoginActivity.this, "Logged In Successful ...", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Logged In Successful ...", Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
 
                     } else {
 
 
                         String Message = task.getException().toString();
-                        Toast.makeText(LoginActivity.this, "Error Message :" + Message, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Error Message :" + Message, Toast.LENGTH_LONG).show();
                         loadingBar.dismiss();
 
                     }
@@ -108,7 +113,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-
 
 
     private void InitializeFields() {

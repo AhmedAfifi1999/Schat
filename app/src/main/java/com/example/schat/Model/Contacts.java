@@ -1,4 +1,4 @@
-package com.example.schat;
+package com.example.schat.Model;
 
 public class Contacts {
     private String name, status, image;
