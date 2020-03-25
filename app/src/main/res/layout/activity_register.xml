@@ -6,116 +6,171 @@
     android:layout_height="match_parent"
     android:background="#10685E"
     tools:context=".View.Activites.LoginActivity">
-    <include
-        layout="@layout/app_bar_layout"
-        android:id="@+id/register_toolbar"
 
-        />
+    <include
+        android:id="@+id/register_toolbar"
+        layout="@layout/app_bar_layout" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.09" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.32" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.42" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.46" />
 
     <Button
         android:id="@+id/register_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="184dp"
         android:background="@drawable/btn_login"
         android:imeOptions="actionNext"
         android:text="Sign In"
         android:textColor="#FFFFFF"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
 
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline7"
         app:passwordToggleDrawable="@drawable/show_password_selector"
-        app:passwordToggleEnabled="true" />
+        app:passwordToggleEnabled="true"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_height="0dp"
+        android:gravity="center"
         android:text="SecChat"
         android:textColor="#FFFFFF"
-        android:textSize="30dp"
 
+        android:textSize="18dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/Email"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
         app:layout_constraintVertical_bias="0.063" />
+
 
     <EditText
         android:id="@+id/Email"
         android:layout_width="match_parent"
-        android:drawableEnd="@drawable/ic_mail_white"
-
         android:layout_height="wrap_content"
+
         android:layout_margin="30dp"
-        android:layout_marginBottom="160dp"
 
         android:backgroundTint="#ffffff"
 
+        android:drawableEnd="@drawable/ic_mail_white"
         android:ems="10"
         android:hint="Enter Your Email"
         android:inputType="textEmailAddress"
         android:textColor="#FFFFFF"
         android:textColorHint="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/pass"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
         tools:ignore="RtlCompat" />
-
-
 
     <EditText
         android:id="@+id/pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
-        android:layout_marginBottom="60dp"
-        android:fontFamily=""
-        android:drawableEnd="@drawable/ic_lock_white"
-
         android:backgroundTint="#ffffff"
+        android:drawableEnd="@drawable/ic_lock_white"
         android:ems="10"
         android:hint="Enter Your Password"
-
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
         android:textColorHint="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/register_login"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
         tools:ignore="RtlCompat" />
 
     <TextView
         android:id="@+id/RForget_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:text="Forget your password  ?"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        android:textStyle="bold"        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/register_login"
+        app:layout_constraintStart_toStartOf="@+id/register_login"
         app:layout_constraintTop_toBottomOf="@+id/register_login" />
 
     <TextView
         android:id="@+id/RAlready_have_Account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Already have an Account ?"
+        android:layout_marginTop="16dp"
+        android:text="Don't have an Account ?"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/RForget_password"
+        app:layout_constraintStart_toStartOf="@+id/RForget_password"
         app:layout_constraintTop_toBottomOf="@+id/RForget_password"
         app:layout_constraintVertical_bias="0.0" />
+
+    <ProgressBar
+        android:id="@+id/loadingBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/register_login"
+        app:layout_constraintEnd_toEndOf="@+id/register_login"
+        app:layout_constraintStart_toStartOf="@+id/register_login"
+        app:layout_constraintTop_toTopOf="@+id/register_login" />
 </androidx.constraintlayout.widget.ConstraintLayout>

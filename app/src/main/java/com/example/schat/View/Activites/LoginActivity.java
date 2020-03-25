@@ -97,10 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                         SendUserToMainActivity();
                         Toast.makeText(LoginActivity.this, "Logged In Successful ...", Toast.LENGTH_SHORT).show();
                         loadingBar.dismiss();
-
                     } else {
-
-
                         String Message = task.getException().toString();
                         Toast.makeText(LoginActivity.this, "Error Message :" + Message, Toast.LENGTH_LONG).show();
                         loadingBar.dismiss();

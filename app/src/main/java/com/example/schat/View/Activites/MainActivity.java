@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (CurrentUser == null) {
-
             SendUserToLoginActivity();
         } else {
             VerifyUserExistance();
@@ -87,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
                     Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
                 } else {
-
-
                     SendUserToSettingsActivity();
                 }
             }
@@ -101,14 +98,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void SendUserToLoginActivity() {
-        Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+        Intent loginIntent = new Intent(MainActivity.this, RegisterActivity.class);
         loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(loginIntent);
         finish();
     }
 
     private void SendUserToSettingsActivity() {
-
         Intent settingIntent = new Intent(MainActivity.this, SettingsActivity.class);
         settingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(settingIntent);
@@ -129,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.main_logout_option) {
 
             mAuth.signOut();
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            startActivity(new Intent(MainActivity.this, RegisterActivity.class));
         }
         if (item.getItemId() == R.id.main_settings_option) {
             startActivity(new Intent(MainActivity.this, SettingsActivity.class));
