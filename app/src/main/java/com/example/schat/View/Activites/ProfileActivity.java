@@ -25,7 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private CircleImageView userProfileImage;
     private TextView userProfileName, userProfileStatue;
-    private Button SendMessageRequestBtn;
+    private Button SendMessageRequestBtn, DeclineMessageRequestBtn;
     private String reciverUserID, SenderUserID, Current_Status;
 
     private FirebaseAuth mAuth;
@@ -49,6 +49,8 @@ public class ProfileActivity extends AppCompatActivity {
         userProfileName = findViewById(R.id.visit_user_name);
         userProfileStatue = findViewById(R.id.visit_profile_status);
         SendMessageRequestBtn = findViewById(R.id.send_message_request_button);
+        DeclineMessageRequestBtn = findViewById(R.id.decline_message_request_button);
+
         RetrieveUserInfo();
     }
 
@@ -111,6 +113,19 @@ public class ProfileActivity extends AppCompatActivity {
                     if (request_type.equals("send")) {
 
                         SendMessageRequestBtn.setText("Cancel Chat Request");
+                    } else if (request_type.equals("received")) {
+                        Current_Status = "request_received";
+                        SendMessageRequestBtn.setText("Accept Chat Request");
+
+                        DeclineMessageRequestBtn.setText(View.VISIBLE);
+                        DeclineMessageRequestBtn.setEnabled(true);
+                        DeclineMessageRequestBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                CancelChatRequest();
+                            }
+                        });
+
                     }
                 }
 
@@ -189,7 +204,7 @@ public class ProfileActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 SendMessageRequestBtn.setEnabled(true);
-                                Current_Status="new";
+                                Current_Status = "new";
                                 SendMessageRequestBtn.setText("Send Message");
 
                             }
