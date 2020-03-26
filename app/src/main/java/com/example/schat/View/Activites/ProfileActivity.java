@@ -48,7 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
         userProfileImage = findViewById(R.id.visit_profile_image);
         userProfileName = findViewById(R.id.visit_user_name);
         userProfileStatue = findViewById(R.id.visit_profile_status);
-        SendMessageRequestBtn=findViewById(R.id.send_message_request_button);
+        SendMessageRequestBtn = findViewById(R.id.send_message_request_button);
         RetrieveUserInfo();
     }
 
@@ -133,6 +133,9 @@ public class ProfileActivity extends AppCompatActivity {
                     if (Current_Status.equals("new")) {
 
                         SendChatRequest();
+                    }
+                    if (Current_Status.equals("request_send")) {
+                        CancelChatRequest();
 
                     }
 
@@ -175,5 +178,29 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
+    public void CancelChatRequest() {
+        ChatRequestRef.child(SenderUserID).child(reciverUserID).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+
+                    ChatRequestRef.child(reciverUserID).child(SenderUserID).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                SendMessageRequestBtn.setEnabled(true);
+                                Current_Status="new";
+                                SendMessageRequestBtn.setText("Send Message");
+
+                            }
+
+                        }
+                    });
+                }
+
+            }
+        });
+
+    }
 
 }
