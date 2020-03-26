@@ -45,6 +45,7 @@ public class SettingsActivity extends AppCompatActivity {
     private StorageReference UserProfileImagesRef;
     private ProgressDialog loadingBar;
     private static final int GallaryPick = 1;
+    public static final String URL = "https://firebasestorage.googleapis.com/v0/b/schat-3ec13.appspot.com/o/Profile%20Images%";
 
 
     @Override
@@ -185,7 +186,7 @@ public class SettingsActivity extends AppCompatActivity {
                 loadingBar.setMessage("Please Wait , your profile image is updating");
                 loadingBar.setCanceledOnTouchOutside(false);
                 loadingBar.show();
-// This part Need TO Change
+                // This part Need TO Change  Upload  Image >
                 Uri resultUri = result.getUri();
 
                 StorageReference filePath = UserProfileImagesRef.child(CurrentUserID + ".jpg");
@@ -197,6 +198,10 @@ public class SettingsActivity extends AppCompatActivity {
                             Toast.makeText(SettingsActivity.this, "Profile Image Uploaded is Successfully ...", Toast.LENGTH_SHORT).show();
                             //Change this Line >
                             final String downloadUrl = task.getResult().getMetadata().getReference().getDownloadUrl().toString();
+                            String NewURL = URL + CurrentUserID + ".jpg";
+                            //"com.google.android.gms.tasks.zzu@9347e6f"
+                            System.out.println(downloadUrl);
+                            System.out.println(NewURL);
 
                             System.out.println(downloadUrl);
                             RootRef.child("Users").child(CurrentUserID).child("image").setValue(downloadUrl).addOnCompleteListener(new OnCompleteListener<Void>() {
